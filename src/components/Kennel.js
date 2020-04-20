@@ -5,6 +5,8 @@ import "./employee/Employee.css"
 import Employee from "./employee/Employee"
 import "./location/Location.css"
 import Location from "./location/Location"
+import "./customer/Customer.css"
+import Customer from "./customer/Customer"
 
 
 
@@ -37,5 +39,15 @@ export default () => (
             <Location />
             <Location />
         </article>
+
+        <h2>Customers</h2>
+        <article className="customers">
+            <Customer />
+            <Customer />
+            <Customer />
+            <Customer />
+        </article>
+
+
     </>
 )
