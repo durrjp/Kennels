@@ -49,7 +49,7 @@ export const LocationProvider = (props) => {
     }, [locations])
 
 
-    /* defines what other components can use: other components can access the array of objects in "lcoations"
+    /* defines what other components can use: other components can access the array of objects in "locations"
     and can invoke
     */
     return (
