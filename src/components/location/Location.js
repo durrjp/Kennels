@@ -1,8 +1,9 @@
 import React from "react"
+import "./Location.css"
 
-export default () => (
+export default ({location}) => (
     <section className="location">
-        <h3 className="location__name">Nashville Kennels West</h3>
-        <div className="location__address">123 Main Street</div>
+        <h3 className="location__name">{location.name}</h3>
+        <address className="location__address">{location.address}</address>
     </section>
 )
