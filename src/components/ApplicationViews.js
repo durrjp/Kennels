@@ -8,6 +8,8 @@ import LocationList from "./location/LocationList"
 import AnimalList from "./animal/AnimalList"
 import CustomerList from "./customer/CustomerList"
 import EmployeeList from "./employee/EmployeeList"
+import EmployeeForm from "./employee/EmployeeForm"
+
 
 
 
@@ -41,8 +43,12 @@ export default (props) => {
 
             <EmployeeProvider>
                 <LocationProvider>
-                    <Route path="/employees">
-                        <EmployeeList />
+                    <Route exact path="/employees" render={
+                        props => <EmployeeList {...props} />
+                    } />
+
+                    <Route exact path="/employees/create">
+                        <EmployeeForm />
                     </Route>
                 </LocationProvider>
             </EmployeeProvider>

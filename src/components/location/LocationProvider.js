@@ -10,6 +10,7 @@ export const LocationContext = React.createContext()
  This component establishes what data can be used.
  */
 export const LocationProvider = (props) => {
+    // 
     const [locations, setLocations] = useState([])
 
     const getLocations = () => {
@@ -50,7 +51,7 @@ export const LocationProvider = (props) => {
 
 
     /* defines what other components can use: other components can access the array of objects in "locations"
-    and can invoke
+    and can invoke addlocation
     */
     return (
         <LocationContext.Provider value={{
