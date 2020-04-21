@@ -68,6 +68,7 @@ export default props => {
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
                         constructNewAnimal(animalLocation, animalName, animalBreed, currentUserId)
+                        props.toggle()
                     }
                 }
                 className="btn btn-primary">

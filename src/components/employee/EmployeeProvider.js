@@ -23,7 +23,7 @@ export const EmployeeProvider = (props) => {
             .then(getEmployees)
     }
 
-    const constructNewEmployee = (employeeLocation, employeeName) => {
+    const constructNewEmployee = (employeeLocation, employeeName, address) => {
         const locationId = parseInt(employeeLocation.current.value)
 
         if (locationId === 0) {
@@ -31,7 +31,8 @@ export const EmployeeProvider = (props) => {
         } else {
             addEmployee({
                 name: employeeName.current.value,
-                locationId: locationId
+                locationId: locationId,
+                address: address.current.value
             })
         }
     }

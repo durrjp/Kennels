@@ -8,6 +8,7 @@ export default props => {
     const { constructNewEmployee } = useContext(EmployeeContext)
     const { locations } = useContext(LocationContext)
     const employeeName = useRef("")
+    const address = useRef("")
     const employeeLocation = useRef(0)
 
 
@@ -20,7 +21,7 @@ export default props => {
                     }
                 }>x</button>
             <h2 className="employeeForm__title">New Employee</h2>
-            <div className="form-group">
+            <fieldset className="form-group">
                 <label htmlFor="employeeName">Employee name</label>
                 <input
                     type="text"
@@ -31,8 +32,22 @@ export default props => {
                     className="form-control"
                     placeholder="Employee name"
                 />
-            </div>
-            <div className="form-group">
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="employeeAddress">Address: </label>
+                    <input
+                        type="text"
+                        id="employeeAddress"
+                        ref={address}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Street address"
+                    />
+                </div>
+            </fieldset>
+            <fieldset className="form-group">
                 <label htmlFor="location">Assign to location</label>
                 <select
                     defaultValue=""
@@ -48,12 +63,13 @@ export default props => {
                         </option>
                     ))}
                 </select>
-            </div>
+            </fieldset>
             <button type="submit"
                 onClick={
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewEmployee(employeeLocation, employeeName)
+                        constructNewEmployee(employeeLocation, employeeName, address)
+                        props.toggle()
                     }
                 }
                 className="btn btn-primary">
