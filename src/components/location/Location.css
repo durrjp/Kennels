@@ -1,7 +1,10 @@
 .locations {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+}
+
+.locationList {
+    display: flex;
 }
 
 .location {

@@ -22,6 +22,22 @@ export const AnimalProvider = (props) => {
             .then(getAnimals)
     }
 
+    const constructNewAnimal = (animalLocation, animalName, animalBreed, currentUserId) => {
+        const locationId = parseInt(animalLocation.current.value)
+
+
+        if (locationId === 0) {
+            window.alert("Please select a location")
+        } else {
+            addAnimal({
+                name: animalName.current.value,
+                locationId: locationId,
+                customerId: currentUserId,
+                breed: animalBreed.current.value
+            })
+        }
+    }
+
     useEffect(() => {
         getAnimals()
     }, [])
@@ -32,7 +48,7 @@ export const AnimalProvider = (props) => {
 
     return (
         <AnimalContext.Provider value={{
-            animals, addAnimal
+            animals, addAnimal, constructNewAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>

@@ -7,10 +7,6 @@
     display: flex;
 }
 
-.addEmployeeButton {
-    width: 100px
-}
-
 .employee {
     flex-basis: 28%;
     margin: 1em;

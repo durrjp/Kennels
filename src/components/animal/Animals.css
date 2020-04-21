@@ -1,7 +1,11 @@
 .animals {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+}
+
+.animalList {
+    display:flex;
+    flex-flow: row wrap;
 }
 
 .animal {

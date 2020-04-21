@@ -8,9 +8,12 @@ export default () => {
     
     return (
         <div className="customers">
-        {
-            customers.map(emp => <Customer key={emp.id} customer={emp} />)
-        }
+            <h1>Customers</h1>
+            <article className='customerList'>
+            {
+                customers.map(emp => <Customer key={emp.id} customer={emp} />)
+            }
+            </article>
         </div>
     )
 }
