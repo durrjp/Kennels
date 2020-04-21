@@ -1,9 +1,9 @@
 import React from "react"
 import "./Location.css"
 
-export default ({location}) => (
+export default (props) => (
     <section className="location">
-        <h3 className="location__name">{location.name}</h3>
-        <address className="location__address">{location.address}</address>
+        <h3 className="location__name">{props.location.name}</h3>
+        <address className="location__address">{props.location.address}</address>
     </section>
 )

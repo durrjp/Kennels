@@ -2,6 +2,7 @@ import React, { useContext, useRef } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
 import { LocationContext } from "../location/LocationProvider"
 import "./Employee.css"
+import "./EmployeeForm.css"
 
 export default props => {
     const { constructNewEmployee } = useContext(EmployeeContext)
@@ -12,6 +13,12 @@ export default props => {
 
     return (
         <form className="employeeForm">
+            <button onClick={
+                    evt => {
+                        evt.preventDefault() // Prevent browser from submitting the form
+                        props.toggle()
+                    }
+                }>x</button>
             <h2 className="employeeForm__title">New Employee</h2>
             <div className="form-group">
                 <label htmlFor="employeeName">Employee name</label>

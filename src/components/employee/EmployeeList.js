@@ -16,11 +16,12 @@ export default () => {
     return (
         <div className="employees">
             <h1>Employees</h1>
-            <button onClick={toggle}>
+            <button onClick={toggle} className="addEmployeeButton">
                 Add Employee
             </button>
             <Modal isOpen={modal} toggle={toggle}>
-                <EmployeeForm />
+                <EmployeeForm isOpen={modal} toggle={toggle}>
+                </EmployeeForm>
             </Modal>
             <article className="employeeList">
                 {

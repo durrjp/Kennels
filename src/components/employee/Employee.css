@@ -1,7 +1,14 @@
 .employees {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+}
+
+.employeeList {
+    display: flex;
+}
+
+.addEmployeeButton {
+    width: 100px
 }
 
 .employee {
