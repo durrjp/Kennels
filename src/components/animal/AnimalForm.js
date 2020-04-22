@@ -2,25 +2,18 @@ import React, { useContext, useRef } from "react"
 import { AnimalContext } from "./AnimalProvider"
 import { LocationContext } from "../location/LocationProvider"
 import "./Animals.css"
-import "./AnimalForm.css"
 
 export default props => {
     const { constructNewAnimal } = useContext(AnimalContext)
     const { locations } = useContext(LocationContext)
-    const animalName = useRef("")
-    const animalBreed = useRef("")
-    const animalLocation = useRef(0)
+    const animalName = useRef()
+    const animalBreed = useRef()
+    const animalLocation = useRef()
     const currentUserId = parseInt(localStorage.getItem("kennel_customer"))
 
 
     return (
         <form className="animalForm">
-            <button onClick={
-                    evt => {
-                        evt.preventDefault() // Prevent browser from submitting the form
-                        props.toggle()
-                    }
-                }>x</button>
             <h2 className="animalForm__title">New Animal</h2>
             <div className="form-group">
                 <label htmlFor="animalName">Animal name</label>

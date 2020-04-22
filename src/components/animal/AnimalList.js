@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Modal } from "reactstrap"
+import { Modal, ModalHeader, ModalBody } from "reactstrap"
 import { LocationContext } from "../location/LocationProvider"
 import { CustomerContext } from "../customer/CustomerProvider"
 import { AnimalContext } from "./AnimalProvider"
@@ -43,8 +43,12 @@ export default () => {
                 Make Appointment
             </button>
             <Modal isOpen={modal} toggle={toggle}>
-                <AnimalForm isOpen={modal} toggle={toggle}>
-                </AnimalForm>
+                <ModalHeader toggle={toggle}>
+                    New Animal
+                </ModalHeader>
+                <ModalBody>
+                    <AnimalForm toggler={toggle} />
+                </ModalBody>
             </Modal>
             {/* Map now queries data from locations and customers to find matching Ids from the animal object */}
             <article className="animalList">

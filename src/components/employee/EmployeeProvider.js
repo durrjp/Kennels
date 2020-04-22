@@ -23,20 +23,6 @@ export const EmployeeProvider = (props) => {
             .then(getEmployees)
     }
 
-    const constructNewEmployee = (employeeLocation, employeeName, address) => {
-        const locationId = parseInt(employeeLocation.current.value)
-
-        if (locationId === 0) {
-            window.alert("Please select a location")
-        } else {
-            addEmployee({
-                name: employeeName.current.value,
-                locationId: locationId,
-                address: address.current.value
-            })
-        }
-    }
-
     useEffect(() => {
         getEmployees()
     }, [])
@@ -47,7 +33,7 @@ export const EmployeeProvider = (props) => {
 
     return (
         <EmployeeContext.Provider value={{
-            employees, addEmployee, constructNewEmployee
+            employees, addEmployee
         }}>
             {props.children}
         </EmployeeContext.Provider>

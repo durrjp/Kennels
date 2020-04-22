@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react"
-import { Modal } from "reactstrap"
 import { EmployeeContext } from "./EmployeeProvider"
-import { LocationContext } from "../location/LocationProvider"
 import Employee from "./Employee"
-import "./Employee.css"
+import { LocationContext } from "../location/LocationProvider"
+import { Modal, ModalHeader, ModalBody } from "reactstrap"
 import EmployeeForm from "./EmployeeForm"
+import "../Kennel.css"
+
 
 export default () => {
     const { employees } = useContext(EmployeeContext)
@@ -14,25 +15,29 @@ export default () => {
     const toggle = () => setModal(!modal)
 
     return (
-        <div className="employees">
-            <h1>Employees</h1>
-            <button onClick={toggle} className="addEmployeeButton">
-                Add Employee
-            </button>
-            <Modal isOpen={modal} toggle={toggle}>
-                <EmployeeForm isOpen={modal} toggle={toggle}>
-                </EmployeeForm>
-            </Modal>
-            <article className="employeeList">
+        <>
+            <h2>Employees</h2>
+
+            <div className="fakeLink href" onClick={toggle}>New Employee</div>
+
+            <ul className="employees">
                 {
-                    employees.map(emp => {
-                        const clinic = locations.find(l => l.id === emp.locationId)
-                        return <Employee key={emp.id}
-                                        employee={emp}
-                                        location={clinic}/>
+                    employees.map(employee => {
+                        const loc = locations.find(l => l.id === employee.locationId)
+
+                        return <Employee key={employee.id} location={loc} employee={employee} />
                     })
                 }
-            </article>
-        </div>
+            </ul>
+
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>
+                    New Employee
+                </ModalHeader>
+                <ModalBody>
+                    <EmployeeForm toggler={toggle} />
+                </ModalBody>
+            </Modal>
+        </>
     )
 }
