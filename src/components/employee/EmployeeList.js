@@ -20,7 +20,7 @@ export default () => {
 
             <div className="fakeLink href" onClick={toggle}>New Employee</div>
 
-            <ul className="employees">
+            <div className="employees">
                 {
                     employees.map(employee => {
                         const loc = locations.find(l => l.id === employee.locationId)
@@ -28,7 +28,7 @@ export default () => {
                         return <Employee key={employee.id} location={loc} employee={employee} />
                     })
                 }
-            </ul>
+            </div>
 
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>

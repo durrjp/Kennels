@@ -19,10 +19,13 @@ export default (props) => {
     return (
         <>
             <LocationProvider>
-                {/* Render the location list when http://localhost:3000/ */}
-                <Route exact path="/">
-                    <LocationList />
-                </Route>
+                <EmployeeProvider>
+                    <AnimalProvider>
+                        <Route exact path="/">
+                            <LocationList />
+                        </Route>
+                    </AnimalProvider>
+                </EmployeeProvider>
             </LocationProvider>
 
             <AnimalProvider>

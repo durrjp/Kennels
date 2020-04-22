@@ -1,10 +1,11 @@
 .employees {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
 }
 
 .employeeList {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .employee {
