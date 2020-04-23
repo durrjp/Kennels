@@ -39,6 +39,13 @@ export const AnimalProvider = (props) => {
         }
     }
 
+    const releaseAnimal = animalId => {
+        return fetch(`http://localhost:8088/animals/${animalId}`, {
+            method: "DELETE"
+        })
+            .then(getAnimals)
+    }
+
     useEffect(() => {
         getAnimals()
     }, [])
@@ -49,7 +56,7 @@ export const AnimalProvider = (props) => {
 
     return (
         <AnimalContext.Provider value={{
-            animals, addAnimal, constructNewAnimal, setSearchTerm, searchTerm, setAnimals
+            animals, addAnimal, constructNewAnimal, setSearchTerm, searchTerm, setAnimals, releaseAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>

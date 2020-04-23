@@ -47,7 +47,7 @@ export default () => {
                     New Animal
                 </ModalHeader>
                 <ModalBody>
-                    <AnimalForm toggler={toggle} />
+                    <AnimalForm toggle={toggle} />
                 </ModalBody>
             </Modal>
             {/* Map now queries data from locations and customers to find matching Ids from the animal object */}
