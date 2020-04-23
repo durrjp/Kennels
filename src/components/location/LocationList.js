@@ -9,7 +9,7 @@ export default () => {
     const { locations } = useContext(LocationContext)
     const { animals } = useContext(AnimalContext)
     const { employees } = useContext(EmployeeContext)
-    
+
     // <Location /> calls Location component and passes an object with properties of key and location
     return (
         <div className="locations">

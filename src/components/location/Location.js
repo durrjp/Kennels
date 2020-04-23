@@ -36,7 +36,6 @@ export default (props) => {
                         return <li>{employee.name}</li>
                         })
                     }
-                
                 </ul>
             </ModalBody>
             <ModalFooter>
