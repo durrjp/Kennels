@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import "./Animals.css"
 import { AnimalContext } from "./AnimalProvider"
 import { useHistory } from "react-router-dom"
+import AnimalForm from "./AnimalForm"
 
 export default (props) => {
     const [modal, setModal] = useState(false)
@@ -40,6 +41,10 @@ export default (props) => {
                     <div className="animal__owner">
                         <label className="label--animal">Customer:</label> {props.customer.name}
                     </div>
+                    <button animalId={props.animal.id} onClick={toggle}>Edit</button>
+                    <Modal isOpen={modal} toggle={toggle}>
+                        <AnimalForm key={props.animal.id} animalId={props.animal.id} toggle={toggle}></AnimalForm>
+                    </Modal>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="secondary" onClick={toggle}>Close</Button>

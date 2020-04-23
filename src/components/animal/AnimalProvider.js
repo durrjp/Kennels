@@ -23,21 +23,15 @@ export const AnimalProvider = (props) => {
             .then(getAnimals)
     }
 
-    const constructNewAnimal = (animalLocation, animalName, animalBreed, currentUserId) => {
-        const locationId = parseInt(animalLocation.current.value)
-
-
-        if (locationId === 0) {
-            window.alert("Please select a location")
-        } else {
-            addAnimal({
-                name: animalName.current.value,
-                locationId: locationId,
-                customerId: currentUserId,
-                breed: animalBreed.current.value
-            })
-        }
-    }
+    const updateAnimal = (animal) => {
+		return fetch(`http://localhost:8088/animals}/${animal.id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(animal)
+		}).then(data => data.json());
+	}
 
     const releaseAnimal = animalId => {
         return fetch(`http://localhost:8088/animals/${animalId}`, {
@@ -56,7 +50,7 @@ export const AnimalProvider = (props) => {
 
     return (
         <AnimalContext.Provider value={{
-            animals, addAnimal, constructNewAnimal, setSearchTerm, searchTerm, setAnimals, releaseAnimal
+            animals, addAnimal, setSearchTerm, searchTerm, setAnimals, releaseAnimal, updateAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>

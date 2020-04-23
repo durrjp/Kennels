@@ -60,7 +60,8 @@ export default () => {
                         return <Animal key={animal.id}
                                     location={matchingLocation}
                                     customer={matchingCustomer}
-                                    animal={animal} />
+                                    animal={animal}>
+                                </Animal>
                     })
                 }
             </article>
