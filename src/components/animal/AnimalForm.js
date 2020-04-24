@@ -15,7 +15,7 @@ export default props => {
     let history = useHistory()
 
 
-    const editMode = props.match.params.hasOwnProperty("animalId")
+    const editMode = props.hasOwnProperty("animalId")
 
     const handleControlledInputChange = (event) => {
         /*
