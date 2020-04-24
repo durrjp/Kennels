@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react"
+import { useHistory } from "react-router-dom"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import "./Animals.css"
 import { AnimalContext } from "./AnimalProvider"
-import { useHistory } from "react-router-dom"
 import AnimalForm from "./AnimalForm"
 
 export default (props) => {

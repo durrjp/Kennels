@@ -54,7 +54,7 @@ export default props => {
                     treatment: props.animal.treatment,
                     customerId: currentUserId
                 })
-                    .then(() => history.push("/animals"))
+                    .then(() => history.push("/"))
             } else {
                 addAnimal({
                     name: props.animal.name,
@@ -63,7 +63,7 @@ export default props => {
                     treatment: props.animal.treatment,
                     customerId: currentUserId
                 })
-                    .then(() => history.push("/animals"))
+                    .then(() => history.push("/"))
             }
         }
     }
