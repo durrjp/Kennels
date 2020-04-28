@@ -16,6 +16,7 @@ export default () => {
 
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
+    
     const currentUserId = parseInt(localStorage.getItem("kennel_customer"))
     //function to figure out if there is a user logged in
     const ifUserLoggedIn = () => {
@@ -60,7 +61,8 @@ export default () => {
                         return <Animal key={animal.id}
                                     location={matchingLocation}
                                     customer={matchingCustomer}
-                                    animal={animal}>
+                                    animal={animal}
+                                    >
                                 </Animal>
                     })
                 }

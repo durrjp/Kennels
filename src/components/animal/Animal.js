@@ -3,14 +3,19 @@ import { useHistory } from "react-router-dom"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import "./Animals.css"
 import { AnimalContext } from "./AnimalProvider"
-import AnimalForm from "./AnimalForm"
+import { EditAnimalForm } from "./EditAnimalForm"
 
 export default (props) => {
-    const [modal, setModal] = useState(false)
     const { releaseAnimal } = useContext(AnimalContext)
     const chosenAnimalId = props.animal.id
-    const toggle = () => setModal(!modal)
     let history = useHistory()
+    // Toggle details modal
+    const [modal, setModal] = useState(false)
+    const toggle = () => setModal(!modal)
+
+    // Toggle edit modal
+    const [editModal, setEditModal] = useState(false)
+    const toggleEdit = () => setEditModal(!editModal)
 
     return (
         <>
@@ -27,7 +32,7 @@ export default (props) => {
                 >Release</button>
             </section>
 
-            <Modal isOpen={modal} toggle={toggle}>
+            <Modal isOpen={modal} toggle={toggle} toggleEdit={toggleEdit}>
                 <ModalHeader toggle={toggle}>
                     {props.animal.name}
                 </ModalHeader>
@@ -41,9 +46,18 @@ export default (props) => {
                     <div className="animal__owner">
                         <label className="label--animal">Customer:</label> {props.customer.name}
                     </div>
-                    <button animalId={props.animal.id} onClick={toggle}>Edit</button>
-                    <Modal isOpen={modal} toggle={toggle}>
-                        <AnimalForm key={props.animal.id} animalId={props.animal.id} toggle={toggle}></AnimalForm>
+
+                    <button animalId={props.animal.id} onClick={toggleEdit} >Edit</button>
+                    <Modal isOpen={editModal} toggleEdit={toggleEdit}>
+                        <ModalHeader toggleEdit={toggleEdit}>
+                            Update Animal
+                        </ModalHeader>
+                        <ModalBody>
+                            <EditAnimalForm key={props.animal.id} animal={props.animal} customer={props.customer} location={props.location}toggleEdit={toggleEdit}></EditAnimalForm>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={toggle}>Close</Button>
+                        </ModalFooter>
                     </Modal>
                 </ModalBody>
                 <ModalFooter>
